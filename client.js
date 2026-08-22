@@ -703,7 +703,11 @@ window.__ModuleLoader__.load({
 			);
 		}
 
-		const TOPICS = ["agent-skills", "dsh-skill", "claude-skills"];
+		const TOPICS = ["agent-skills", "dsh-skill", "claude-skills", "ai-skills", "skills", "skill", "*skills", "*skill"];
+
+		function topicLabel(t) {
+			return t.charAt(0) === "*" ? "模糊 " + t : "topic:" + t;
+		}
 
 		function SkillsMarketplace() {
 			const [view, setView] = React.useState("discover");
@@ -771,7 +775,7 @@ window.__ModuleLoader__.load({
 				view === "discover" ? h(React.Fragment, null,
 					h("div", { className: "sk-toolbar" },
 						h("select", { className: "sk-select", value: topic, onChange: (e) => { setTopic(e.target.value); setPage(1); search(1, { topic: e.target.value }); } },
-							TOPICS.map((t) => h("option", { key: t, value: t }, "topic:" + t)),
+							TOPICS.map((t) => h("option", { key: t, value: t }, topicLabel(t))),
 						),
 						h("input", {
 							className: "sk-input",
@@ -789,7 +793,7 @@ window.__ModuleLoader__.load({
 					),
 					result !== null
 						? h(React.Fragment, null,
-							h("div", { className: "sk-muted" }, "共 " + result.total + " 个仓库（topic:" + result.topic + "，第 " + result.page + " 页）"),
+							h("div", { className: "sk-muted" }, "共 " + result.total + " 个仓库（" + (result.topic.charAt(0) === "*" ? "模糊 " + result.topic + (result.partial === true ? "，部分结果" : "") : "topic:" + result.topic) + "，第 " + result.page + " 页）"),
 							h("div", { className: "sk-grid" }, result.repos.map((repo) => h(RepoCard, { key: repo.fullName, repo, onOpen: setSelected }))),
 							result.repos.length === 0 ? h("div", { className: "sk-muted" }, "没有匹配的仓库。") : null,
 							h("div", { className: "sk-pager" },

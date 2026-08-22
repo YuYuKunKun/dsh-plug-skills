@@ -37,6 +37,13 @@ const REPO_RE = /^[A-Za-z0-9][A-Za-z0-9._-]*\/[A-Za-z0-9][A-Za-z0-9._-]*$/
 const SKILL_PATH_RE = /^[A-Za-z0-9._][A-Za-z0-9._-]*(\/[A-Za-z0-9._][A-Za-z0-9._-]*)*$/
 const SKILL_DIR_RE = /^[A-Za-z0-9._][A-Za-z0-9._-]{0,63}$/
 const TOPIC_RE = /^[a-z0-9][a-z0-9-]{0,49}$/
+// 模糊 topic（`*` 前缀）：GitHub 搜索不支持通配符限定符，改为对一组技能
+// 相关 topic 并行精确搜索后本地合并去重。
+const FUZZY_TOPIC_RE = /^\*[a-z0-9][a-z0-9-]{0,49}$/
+const FUZZY_TOPIC_GROUPS = {
+  '*skills': ['agent-skills', 'ai-skills', 'claude-skills', 'skills'],
+  '*skill': ['dsh-skill', 'skill'],
+}
 const UNSAFE_RE = /[\u0000-\u001f\u007f'`;|&$<>(){}[\]\\]/
 const PER_PAGE = 12
 
@@ -133,6 +140,8 @@ export function apply(ctx, config) {
   const GH_FETCH_TIMEOUT_MS = 30000
   const GH_FETCH_MAX_BYTES = 5 * 1024 * 1024
   const GH_FETCH_MAX_CHARS = 100000
+  // 搜索接口（尤其模糊模式 per_page=30）响应可达数百 KB，单独放宽上限。
+  const SEARCH_MAX_CHARS = 3000000
 
   function curlFetch(url, proxy) {
     return new Promise((resolvePromise, rejectPromise) => {
@@ -628,17 +637,63 @@ export function apply(ctx, config) {
 
   route('/plug-skills/search', async (params) => {
     const topicRaw = (params.get('topic') ?? '').trim()
-    const topic = topicRaw !== '' && TOPIC_RE.test(topicRaw) === true ? topicRaw : 'agent-skills'
+    const topic = topicRaw !== '' && (TOPIC_RE.test(topicRaw) === true || FUZZY_TOPIC_RE.test(topicRaw) === true)
+      ? topicRaw : 'agent-skills'
     const query = (params.get('query') ?? '').trim().slice(0, 100)
     const sortRaw = params.get('sort') ?? ''
     const sort = sortRaw === 'stars' || sortRaw === 'updated' ? sortRaw : ''
     const pageRaw = Number(params.get('page') ?? '1')
     const page = Number.isInteger(pageRaw) === true && pageRaw > 0 && pageRaw <= 100 ? pageRaw : 1
+
+    // 模糊模式（* 前缀）：GitHub 不支持通配符限定符，改为并行搜索一组技能
+    // 相关 topic（每个取前 30 名），本地合并去重后分页。一次模糊搜索消耗
+    // 2-4 个匿名搜索额度（限流 10 次/分钟）；部分失败时返回部分结果。
+    if (topic.charAt(0) === '*') {
+      const group = FUZZY_TOPIC_GROUPS[topic] ?? [topic.slice(1)]
+      const fetches = group.map((t) => {
+        let queryText = 'topic:' + t
+        if (query !== '') queryText += ' ' + query
+        let url = GH_API + '/search/repositories?q=' + encodeURIComponent(queryText) + '&per_page=30&page=1&order=desc'
+        if (sort !== '') url += '&sort=' + sort
+        return ghJson(url, SEARCH_MAX_CHARS)
+      })
+      const settled = await Promise.allSettled(fetches)
+      const merged = new Map()
+      let okCount = 0
+      for (const result of settled) {
+        if (result.status !== 'fulfilled') continue
+        okCount += 1
+        const items = Array.isArray(result.value.items) === true ? result.value.items : []
+        for (const item of items) {
+          const fn = typeof item.full_name === 'string' ? item.full_name : ''
+          if (fn !== '' && merged.has(fn) === false) merged.set(fn, item)
+        }
+      }
+      if (okCount === 0) {
+        const firstError = settled.find((r) => r.status === 'rejected')
+        throw firstError !== undefined && firstError.reason instanceof Error ? firstError.reason : new Error('模糊搜索失败：所有 topic 查询均未返回结果')
+      }
+      const list = [...merged.values()]
+      if (sort === 'updated') list.sort((a, b) => String(b.updated_at ?? '').localeCompare(String(a.updated_at ?? '')))
+      else list.sort((a, b) => (Number(b.stargazers_count) || 0) - (Number(a.stargazers_count) || 0))
+      const start = (page - 1) * PER_PAGE
+      return {
+        ok: true,
+        topic,
+        total: list.length,
+        page,
+        perPage: PER_PAGE,
+        repos: list.slice(start, start + PER_PAGE).map(trimRepo),
+        aggregatedFrom: group,
+        partial: okCount < group.length,
+      }
+    }
+
     let queryText = 'topic:' + topic
     if (query !== '') queryText += ' ' + query
     let url = GH_API + '/search/repositories?q=' + encodeURIComponent(queryText) + '&per_page=' + PER_PAGE + '&page=' + page + '&order=desc'
     if (sort !== '') url += '&sort=' + sort
-    const data = await ghJson(url)
+    const data = await ghJson(url, SEARCH_MAX_CHARS)
     const items = Array.isArray(data.items) ? data.items : []
     return { ok: true, topic, total: typeof data.total_count === 'number' ? data.total_count : items.length, page, perPage: PER_PAGE, repos: items.map(trimRepo) }
   })

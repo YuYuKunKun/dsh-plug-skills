@@ -59,7 +59,8 @@ if (html !== '') {
   check('SSR 渲染成功', true)
   check('含发现/已安装标签', html.includes('发现') && html.includes('已安装'))
   check('含代理面板', html.includes('GitHub 代理'))
-  check('含技能 topic 选择', html.includes('topic:agent-skills') && html.includes('topic:dsh-skill') && html.includes('topic:claude-skills'))
+  check('含技能 topic 选择', html.includes('topic:agent-skills') && html.includes('topic:dsh-skill') && html.includes('topic:claude-skills') && html.includes('topic:ai-skills') && html.includes('topic:skills') && html.includes('topic:skill'))
+  check('含模糊匹配选项', html.includes('模糊 *skills') && html.includes('模糊 *skill'))
   check('无 MCP 残留', !html.includes('MCP 服务') && !html.includes('plug-mcp'))
 }
 

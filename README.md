@@ -12,7 +12,12 @@ GitHub 上的 Agent Skills 仓库（`SKILL.md` 技能包），查看详情后一
 
 - **设置 → 插件 → Skills**（Web UI）
   - **发现**：按 GitHub topic 搜索技能仓库——`agent-skills` / `dsh-skill` /
-    `claude-skills`，可追加关键词、按最多 Star / 最近更新排序、翻页。
+    `claude-skills` / `ai-skills` / `skills` / `skill`，可追加关键词、按最多
+    Star / 最近更新排序、翻页。另有两个**模糊匹配**选项：`*skills` 与
+    `*skill`——GitHub 搜索不支持通配符限定符，插件会并行搜索一组技能
+    相关 topic（`*skills` = agent-skills + ai-skills + claude-skills +
+    skills；`*skill` = dsh-skill + skill），合并去重后按 Star 排序展示
+    （一次消耗 2-4 个匿名搜索额度，注意限流）。
   - **详情弹窗**：仓库星标 / topics / 许可证 / README（内置安全 Markdown
     渲染，只放行 http(s) 链接，相对图片改写为 raw.githubusercontent.com），
     经 git trees 递归扫描列出仓库内全部 `SKILL.md` 技能包，解析每个技能的
