@@ -16,43 +16,50 @@ window.__ModuleLoader__.load({
 			".sk-select{padding:7px 10px;border:1px solid var(--dsw-alias-border-l1,#ddd);border-radius:8px;background:var(--dsw-alias-bg-layer-1,#fff);color:var(--dsw-alias-label-primary,#111);}",
 			".sk-btn{padding:6px 12px;border:1px solid var(--dsw-alias-border-l1,#ddd);border-radius:8px;background:var(--dsw-alias-bg-layer-1,#fff);color:var(--dsw-alias-label-primary,#111);cursor:pointer;font-size:12px;white-space:nowrap;text-decoration:none;display:inline-block;}",
 			".sk-btn:hover{border-color:var(--dsw-alias-border-l2,#bbb);}",
-			".sk-btn.primary{background:var(--dsw-alias-brand-primary,#4a6cf7);border-color:var(--dsw-alias-brand-primary,#4a6cf7);color:#fff;}",
-			".sk-btn.primary:hover{opacity:.9;}",
-			".sk-btn.danger{color:#c0392b;border-color:#e0b4ae;}",
+			".sk-btn.primary{background:var(--dsw-alias-bg-base,#fff);border-color:var(--dsw-alias-border-l2,#bbb);color:var(--dsw-alias-label-primary,#111);font-weight:600;}",
+			".sk-btn.primary:hover{border-color:var(--dsw-alias-label-primary,#111);}",
+			".sk-btn.danger{color:var(--dsw-alias-state-error-primary,#d33);}",
 			".sk-btn.ghost{background:transparent;border-color:transparent;color:var(--dsw-alias-label-secondary,#666);}",
-			".sk-btn:disabled{opacity:.5;cursor:not-allowed;}",
+			".sk-btn:disabled{opacity:.5;cursor:default;}",
+			".sk-btn:active:not(:disabled){transform:translateY(1px);}",
 			".sk-note{border:1px solid var(--dsw-alias-border-l1,#e5e5e5);border-radius:10px;background:var(--dsw-alias-bg-layer-1,#fff);padding:10px 14px;display:flex;flex-direction:column;gap:4px;}",
 			".sk-muted{color:var(--dsw-alias-label-secondary,#777);font-size:12px;}",
-			".sk-error{color:#c0392b;background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.25);border-radius:8px;padding:8px 12px;white-space:pre-wrap;word-break:break-all;}",
-			".sk-success{color:#1e7e34;background:rgba(30,126,52,.07);border:1px solid rgba(30,126,52,.25);border-radius:8px;padding:8px 12px;white-space:pre-wrap;word-break:break-all;}",
+			".sk-error{color:var(--dsw-alias-state-error-primary,#d33);background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.25);border-radius:8px;padding:8px 12px;white-space:pre-wrap;word-break:break-all;}",
+			".sk-success{color:var(--dsw-alias-state-success-primary,#2a9d4a);background:rgba(30,126,52,.07);border:1px solid rgba(30,126,52,.25);border-radius:8px;padding:8px 12px;white-space:pre-wrap;word-break:break-all;}",
 			".sk-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:var(--dsw-alias-bg-layer-2,#f7f7f7);border:1px solid var(--dsw-alias-border-l1,#eee);border-radius:6px;padding:2px 6px;word-break:break-all;}",
 			".sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;}",
-			".sk-card{border:1px solid var(--dsw-alias-border-l1,#ddd);border-radius:10px;background:var(--dsw-alias-bg-layer-1,#fff);padding:14px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:border-color .15s;}",
-			".sk-card:hover{border-color:var(--dsw-alias-brand-primary,#4a6cf7);}",
-			".sk-card.static{cursor:default;}",
-			".sk-card.static:hover{border-color:var(--dsw-alias-border-l1,#ddd);}",
+			".sk-card{border:1px solid var(--dsw-alias-border-l1,#ddd);border-radius:10px;background:var(--dsw-alias-bg-layer-1,#fff);padding:14px;display:flex;flex-direction:column;gap:8px;}",
 			".sk-card-head{display:flex;gap:8px;align-items:center;}",
 			".sk-avatar{width:22px;height:22px;border-radius:6px;flex:none;}",
+			".sk-name{font-weight:600;font-size:13px;word-break:break-all;color:var(--dsw-alias-brand-primary,#4a6cf7);cursor:pointer;}",
 			".sk-card-title{font-weight:600;font-size:13px;word-break:break-all;}",
 			".sk-card-desc{color:var(--dsw-alias-label-secondary,#666);font-size:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:18px;}",
 			".sk-badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}",
 			".sk-badge{font-size:11px;border:1px solid var(--dsw-alias-border-l1,#e0e0e0);border-radius:20px;padding:1px 8px;color:var(--dsw-alias-label-secondary,#666);background:var(--dsw-alias-bg-layer-2,#fafafa);white-space:nowrap;}",
-			".sk-badge.warn{color:#a06000;border-color:#e8cf9a;background:rgba(230,180,60,.1);}",
-			".sk-badge.ok{color:#1e7e34;border-color:#b7dcbf;background:rgba(30,126,52,.08);}",
+			".sk-badge.warn{color:var(--dsw-alias-state-warn-primary,#c8860a);border-color:currentColor;}",
+			".sk-badge.ok{color:var(--dsw-alias-state-success-primary,#2a9d4a);border-color:currentColor;}",
 			".sk-pager{display:flex;gap:8px;align-items:center;justify-content:center;}",
-			".sk-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:1200;padding:24px;}",
-			".sk-modal{background:var(--dsw-alias-bg-base,#fff);border-radius:14px;max-width:860px;width:100%;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 18px 60px rgba(0,0,0,.3);animation:sk-pop .16s ease-out;}",
+			".sk-spacer{flex:1;}",
+			".sk-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-start;justify-content:center;z-index:1200;padding:4vh 16px;animation:sk-fade .18s ease-out;}",
+			".sk-modal{background:var(--dsw-alias-bg-layer-1,#fff);border:1px solid var(--dsw-alias-border-l1,#ddd);border-radius:14px;max-width:860px;width:100%;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 16px 48px rgba(0,0,0,.28);animation:sk-pop .22s ease-out;}",
 			".sk-modal.small{max-width:460px;}",
-			"@keyframes sk-pop{from{transform:scale(.96);opacity:.4}to{transform:scale(1);opacity:1}}",
+			"@keyframes sk-fade{from{opacity:0}to{opacity:1}}",
+			"@keyframes sk-pop{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}",
 			".sk-modal-head{display:flex;flex-direction:column;gap:8px;padding:16px 20px 12px;border-bottom:1px solid var(--dsw-alias-border-l1,#eee);}",
 			".sk-modal-body{overflow:auto;padding:16px 20px;display:flex;flex-direction:column;gap:14px;}",
 			".sk-modal-foot{padding:12px 20px;border-top:1px solid var(--dsw-alias-border-l1,#eee);display:flex;gap:8px;align-items:center;flex-wrap:wrap;}",
+			".sk-loading{display:flex;flex-direction:column;align-items:center;gap:12px;padding:48px 0;}",
+			".sk-spin{width:34px;height:34px;border-radius:50%;border:3px solid var(--dsw-alias-border-l2,#bbb);border-top-color:var(--dsw-alias-label-primary,#111);animation:sk-rotate .9s linear infinite;}",
+			"@keyframes sk-rotate{to{transform:rotate(360deg)}}",
 			".sk-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}",
 			".sk-col{display:flex;flex-direction:column;gap:6px;}",
 			".sk-label{font-size:12px;color:var(--dsw-alias-label-secondary,#666);}",
 			".sk-skill-item{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--dsw-alias-border-l1,#eee);border-radius:8px;padding:8px 10px;}",
 			".sk-skill-item .sk-col{flex:1;min-width:0;}",
-			".sk-md{font-size:13px;line-height:1.65;word-break:break-word;}",
+			".sk-readme{max-height:min(62vh,640px);overflow:auto;background:var(--dsw-alias-bg-layer-2,#f7f7f7);border:1px solid var(--dsw-alias-border-l1,#ddd);border-radius:8px;padding:14px;}",
+			".sk-html{display:flex;flex-direction:column;gap:8px;}",
+			".sk-html img,.sk-md img{max-width:100%;}",
+			".sk-md{font-size:13px;line-height:1.65;word-break:break-word;color:var(--dsw-alias-label-primary,#222);}",
 			".sk-md h1{font-size:1.35em;margin:.6em 0 .4em;padding-bottom:.25em;border-bottom:1px solid var(--dsw-alias-border-l1,#e5e5e5);}",
 			".sk-md h2{font-size:1.2em;margin:.7em 0 .4em;padding-bottom:.2em;border-bottom:1px solid var(--dsw-alias-border-l1,#e5e5e5);}",
 			".sk-md h3{font-size:1.08em;margin:.6em 0 .3em;}",
@@ -68,6 +75,9 @@ window.__ModuleLoader__.load({
 			".sk-md li{margin:.15em 0;}",
 			".sk-md img{max-width:100%;border-radius:6px;margin:.2em 0;}",
 			".sk-md hr{border:none;border-top:1px solid var(--dsw-alias-border-l1,#e5e5e5);margin:1em 0;}",
+			".sk-md-table{border-collapse:collapse;margin:.6em 0;font-size:12px;display:block;overflow-x:auto;max-width:100%;}",
+			".sk-md-table th,.sk-md-table td{border:1px solid var(--dsw-alias-border-l1,#ddd);padding:4px 10px;}",
+			".sk-md-table th{background:var(--dsw-alias-bg-layer-1,#fff);}",
 			".sk-section-title{font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}",
 		].join("\n");
 
@@ -106,116 +116,319 @@ window.__ModuleLoader__.load({
 		}
 
 		// ------------------------------------------------------- Markdown 渲染
-		// 迷你 Markdown → React 元素渲染器：不插入任何原始 HTML，文本一律经
-		// React 转义，链接只放行 http(s)/锚点，相对图片改写为 raw 地址。
-		function mdSafeUrl(url, resolveImage) {
+		// 迷你 Markdown → React 元素渲染器（与 dsh-plug-manager 同源）：不插入
+		// 任何原始 HTML，文本一律经 React 转义，链接只放行 http(s)/锚点。
+		// README 中的内联 / 块级 HTML 经 DOMParser 解析 + 白名单净化后转成
+		// React 元素；支持链接图片 `[![alt](img)](url)`（徽章/统计图常用）。
+		const MD_HEADING_RE = /^(#{1,6})\s+(.+?)\s*#*\s*$/;
+		const MD_HR_RE = /^ {0,3}(?:-{3,}|\*{3,}|_{3,})\s*$/;
+		const MD_FENCE_RE = /^(`{3,}|~{3,})\s*([A-Za-z0-9_+#.-]*)\s*$/;
+		const MD_LIST_RE = /^(\s*)([-*+]|\d{1,9}[.)])\s+(.*)$/;
+		const MD_QUOTE_RE = /^ {0,3}>\s?(.*)$/;
+		const MD_TABLE_SEP_RE = /^\s*\|?\s*:?-{2,}[^\s|]*\s*(\|\s*:?-{2,}[^\s|]*\s*)*\|?\s*$/;
+
+		function mdSafeUrl(url) {
 			if (typeof url !== "string") return null;
 			const u = url.trim();
 			if (/^https?:\/\//i.test(u)) return u;
 			if (u.startsWith("#")) return u;
-			if (resolveImage !== undefined) return resolveImage(u);
 			return null;
 		}
 
-		const MD_INLINE_RE = /(`[^`\n]+`)|(\*\*[^*\n]+\*\*)|(\*[^*\s\n][^*\n]*\*)|(!\[[^\]\n]*\]\([^)\s]+\))|(\[[^\]\n]+\]\([^)\s]+\))/;
+		function mdSplitTableRow(line) {
+			let t = line.trim();
+			if (t.startsWith("|")) t = t.slice(1);
+			if (t.endsWith("|")) t = t.slice(0, -1);
+			return t.split("|").map((c) => c.trim());
+		}
 
-		function mdInline(text, keyBase, resolveImage) {
-			const out = [];
-			let rest = String(text);
-			let key = 0;
-			while (rest !== "") {
-				const m = MD_INLINE_RE.exec(rest);
-				if (m === null) { out.push(rest); break; }
-				if (m.index > 0) out.push(rest.slice(0, m.index));
-				const tok = m[0];
-				const k = keyBase + "-" + (key++);
-				if (tok.charAt(0) === "`") {
-					out.push(h("code", { key: k }, tok.slice(1, -1)));
-				} else if (tok.startsWith("**")) {
-					out.push(h("strong", { key: k }, mdInline(tok.slice(2, -2), k, resolveImage)));
-				} else if (tok.startsWith("![")) {
-					const mm = /^!\[([^\]]*)\]\(([^)\s]+)\)$/.exec(tok);
-					const u = mm !== null ? mdSafeUrl(mm[2], resolveImage) : null;
-					if (u !== null) out.push(h("img", { key: k, src: u, alt: mm[1], loading: "lazy" }));
-				} else if (tok.charAt(0) === "[") {
-					const mm = /^\[([^\]]+)\]\(([^)\s]+)\)$/.exec(tok);
-					const u = mm !== null ? mdSafeUrl(mm[2], undefined) : null;
-					if (u !== null) out.push(h("a", { key: k, href: u, target: "_blank", rel: "noreferrer noopener" }, mdInline(mm[1], k, resolveImage)));
-					else out.push(tok);
-				} else if (tok.charAt(0) === "*") {
-					out.push(h("em", { key: k }, mdInline(tok.slice(1, -1), k, resolveImage)));
-				} else {
-					out.push(tok);
+		// ---- README 中的 HTML：DOMParser 解析 + 白名单净化后转 React 元素 ----
+		const HTML_DROP_TAGS = { script: 1, style: 1, iframe: 1, frame: 1, frameset: 1, object: 1, embed: 1, link: 1, meta: 1, base: 1, form: 1, input: 1, textarea: 1, select: 1, button: 1, svg: 1, math: 1, template: 1, title: 1, noscript: 1, applet: 1, area: 1, map: 1 };
+		const HTML_ALLOWED_TAGS = { a: 1, abbr: 1, b: 1, blockquote: 1, br: 1, caption: 1, center: 1, code: 1, dd: 1, del: 1, details: 1, div: 1, dl: 1, dt: 1, em: 1, figcaption: 1, figure: 1, h1: 1, h2: 1, h3: 1, h4: 1, h5: 1, h6: 1, hr: 1, i: 1, img: 1, ins: 1, kbd: 1, li: 1, mark: 1, ol: 1, p: 1, picture: 1, pre: 1, q: 1, s: 1, samp: 1, small: 1, source: 1, span: 1, strike: 1, strong: 1, sub: 1, summary: 1, sup: 1, table: 1, tbody: 1, td: 1, tfoot: 1, th: 1, thead: 1, tr: 1, u: 1, ul: 1, var: 1 };
+		const HTML_VOID_TAGS = { br: 1, hr: 1, img: 1, source: 1 };
+		const HTML_ALLOWED_ATTRS = { align: 1, alt: 1, colspan: 1, height: 1, rowspan: 1, start: 1, title: 1, valign: 1, width: 1 };
+		const HTML_BLOCK_START_RE = /^\s*<(div|p|table|ul|ol|dl|blockquote|pre|figure|details|section|article|picture|center|summary|nav|header|footer|aside|main|h[1-6]|hr|br|img)([\s/>]|$)/i;
+
+		function domNodeToReact(node, key, resolveImage) {
+			if (node.nodeType === 3) {
+				const text = node.nodeValue.replace(/\s+/g, " ");
+				if (text === "" || text === " ") return null;
+				return mdInline(text, key, resolveImage);
+			}
+			if (node.nodeType !== 1) return null;
+			const tag = node.tagName.toLowerCase();
+			if (HTML_DROP_TAGS[tag] === 1) return null;
+			if (HTML_ALLOWED_TAGS[tag] !== 1) return domChildrenToReact(node, key, resolveImage);
+			const props = { key };
+			for (let ai = 0; ai < node.attributes.length; ai++) {
+				const attr = node.attributes[ai];
+				const name = attr.name.toLowerCase();
+				const value = attr.value;
+				if (typeof value !== "string" || value.length > 2000) continue;
+				if (name === "href") {
+					const u = mdSafeUrl(value);
+					if (u !== null) props.href = u;
+				} else if (name === "src") {
+					const u = resolveImage(value);
+					if (u !== null) props.src = u;
+				} else if (HTML_ALLOWED_ATTRS[name] === 1 && value.length <= 200) {
+					props[name] = value;
 				}
-				rest = rest.slice(m.index + tok.length);
+			}
+			if (tag === "a") {
+				if (props.href === undefined) return domChildrenToReact(node, key, resolveImage);
+				props.target = "_blank";
+				props.rel = "noreferrer noopener";
+			}
+			if (tag === "img") {
+				if (props.src === undefined) return null;
+				props.loading = "lazy";
+				return h("img", props);
+			}
+			if (HTML_VOID_TAGS[tag] === 1) return h(tag, props);
+			return h(tag, props, domChildrenToReact(node, key, resolveImage));
+		}
+		function domChildrenToReact(parent, keyBase, resolveImage) {
+			const out = [];
+			for (let ni = 0; ni < parent.childNodes.length; ni++) {
+				const converted = domNodeToReact(parent.childNodes[ni], keyBase + "-" + ni, resolveImage);
+				if (converted !== null) out.push(converted);
 			}
 			return out;
 		}
+		function renderHtmlChunk(html, keyBase, resolveImage) {
+			try {
+				const doc = new DOMParser().parseFromString(html, "text/html");
+				return domChildrenToReact(doc.body, keyBase, resolveImage);
+			} catch (e) {
+				return [html];
+			}
+		}
 
-		function MdView(props) {
-			const text = String(props.text ?? "");
-			const resolveImage = props.resolveImage;
-			const lines = text.split(/\r?\n/);
+		function mdInline(text, keyBase, resolveImage) {
+			const patterns = [
+				{ re: /`([^`]+)`/, type: "code" },
+				{ re: /\[!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/, type: "imglink" },
+				{ re: /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/, type: "img" },
+				{ re: /\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/, type: "link" },
+				{ re: /\*\*([\s\S]+?)\*\*/, type: "bold" },
+				{ re: /__([\s\S]+?)__/, type: "bold" },
+				{ re: /~~([\s\S]+?)~~/, type: "strike" },
+				{ re: /\*([^*\n]+)\*/, type: "italic" },
+				{ re: /(^|[\s(])_([^_\n]+)_(?=[\s).,!?:;]|$)/, type: "italic2" },
+				{ re: /<\/?[a-zA-Z][a-zA-Z0-9-]*(?:\s[^<>]*)?\s*\/?>/, type: "html" },
+			];
+			const nodes = [];
+			let rest = text;
+			let k = 0;
+			while (rest.length > 0) {
+				let best = null;
+				for (const p of patterns) {
+					const m = p.re.exec(rest);
+					if (m !== null && (best === null || m.index < best.m.index || (m.index === best.m.index && m[0].length > best.m[0].length))) {
+						best = { p, m };
+					}
+				}
+				if (best === null) { nodes.push(rest); break; }
+				const p = best.p;
+				const m = best.m;
+				if (m.index > 0) nodes.push(rest.slice(0, m.index));
+				const kk = keyBase + "-" + (k++);
+				let extraSkip = 0;
+				if (p.type === "code") {
+					nodes.push(h("code", { key: kk }, m[1]));
+				} else if (p.type === "imglink") {
+					const imgSrc = resolveImage(m[2]);
+					const href = mdSafeUrl(m[3]);
+					if (imgSrc !== null && href !== null) {
+						nodes.push(h("a", { key: kk, href, target: "_blank", rel: "noreferrer noopener" }, h("img", { src: imgSrc, alt: m[1], loading: "lazy" })));
+					} else if (imgSrc !== null) {
+						nodes.push(h("img", { key: kk, src: imgSrc, alt: m[1], loading: "lazy" }));
+					} else {
+						nodes.push(m[1] !== "" ? m[1] : m[0]);
+					}
+				} else if (p.type === "img") {
+					const src = resolveImage(m[2]);
+					if (src !== null) nodes.push(h("img", { key: kk, src, alt: m[1], loading: "lazy" }));
+					else nodes.push(m[1] !== "" ? m[1] : m[0]);
+				} else if (p.type === "link") {
+					const href = mdSafeUrl(m[2]);
+					if (href !== null) nodes.push(h("a", { key: kk, href, target: "_blank", rel: "noreferrer noopener" }, mdInline(m[1], kk, resolveImage)));
+					else nodes.push(m[1]);
+				} else if (p.type === "bold") {
+					nodes.push(h("strong", { key: kk }, mdInline(m[1], kk, resolveImage)));
+				} else if (p.type === "strike") {
+					nodes.push(h("del", { key: kk }, mdInline(m[1], kk, resolveImage)));
+				} else if (p.type === "italic") {
+					nodes.push(h("em", { key: kk }, mdInline(m[1], kk, resolveImage)));
+				} else if (p.type === "html") {
+					const tagNameMatch = /^<\/?([a-zA-Z][a-zA-Z0-9-]*)/.exec(m[0]);
+					const tagName = tagNameMatch !== null ? tagNameMatch[1].toLowerCase() : "";
+					const isClosing = m[0].charAt(0) === "<" && m[0].charAt(1) === "/";
+					const selfClosing = /\/\s*>$/.test(m[0]) || HTML_VOID_TAGS[tagName] === 1;
+					if (isClosing) {
+						nodes.push(m[0]);
+					} else if (selfClosing) {
+						nodes.push(h(React.Fragment, { key: kk }, renderHtmlChunk(m[0], kk, resolveImage)));
+					} else {
+						const closeRe = new RegExp("</" + tagName + "\\s*>", "i");
+						const after = rest.slice(m.index + m[0].length);
+						const cm = closeRe.exec(after);
+						if (cm !== null) {
+							const chunk = m[0] + after.slice(0, cm.index) + cm[0];
+							nodes.push(h(React.Fragment, { key: kk }, renderHtmlChunk(chunk, kk, resolveImage)));
+							extraSkip = cm.index + cm[0].length;
+						} else {
+							nodes.push(h(React.Fragment, { key: kk }, renderHtmlChunk(m[0], kk, resolveImage)));
+						}
+					}
+				} else {
+					nodes.push(m[1]);
+					nodes.push(h("em", { key: kk }, mdInline(m[2], kk, resolveImage)));
+				}
+				rest = rest.slice(m.index + m[0].length + extraSkip);
+			}
+			return nodes;
+		}
+
+		function mdBuildList(items, keyBase, resolveImage) {
+			function build(from, indent) {
+				const ordered = items[from].ordered;
+				const lis = [];
+				let idx = from;
+				while (idx < items.length) {
+					const it = items[idx];
+					if (it.indent < indent) break;
+					if (it.indent > indent) {
+						const sub = build(idx, it.indent);
+						if (lis.length === 0) lis.push(h("li", { key: keyBase + "-x" + idx }, sub.el));
+						else {
+							const last = lis[lis.length - 1];
+							const prev = Array.isArray(last.props.children) ? last.props.children : [last.props.children];
+							lis[lis.length - 1] = h("li", { key: last.key }, prev.concat(sub.el));
+						}
+						idx = sub.idx;
+						continue;
+					}
+					lis.push(h("li", { key: keyBase + "-" + idx }, mdInline(it.text, keyBase + "-" + idx, resolveImage)));
+					idx++;
+				}
+				return { el: h(ordered ? "ol" : "ul", { key: keyBase + "-l" + from }, lis), idx };
+			}
+			return build(0, items[0].indent).el;
+		}
+
+		function renderMarkdown(text, resolveImage) {
+			const lines = String(text).split(/\r?\n/);
 			const blocks = [];
 			let i = 0;
 			let key = 0;
 			while (i < lines.length) {
 				const line = lines[i];
-				const trimmed = line.trim();
-				const k = "b" + (key++);
-				if (trimmed === "") { i += 1; continue; }
-				const fence = /^(`{3,}|~{3,})\s*([A-Za-z0-9_+#.-]*)\s*$/.exec(trimmed);
+				if (line.trim() === "") { i++; continue; }
+				const fence = MD_FENCE_RE.exec(line);
 				if (fence !== null) {
+					const closer = new RegExp("^" + fence[1].slice(0, 3) + "+\\s*$");
 					const buf = [];
-					i += 1;
-					while (i < lines.length && !lines[i].trim().startsWith(fence[1])) { buf.push(lines[i]); i += 1; }
-					i += 1;
-					blocks.push(h("pre", { key: k }, h("code", null, buf.join("\n"))));
+					i++;
+					while (i < lines.length && !closer.test(lines[i])) { buf.push(lines[i]); i++; }
+					i++;
+					blocks.push(h("pre", { key: "b" + (key++) }, h("code", null, buf.join("\n"))));
 					continue;
 				}
-				const heading = /^(#{1,6})\s+(.+?)\s*#*\s*$/.exec(trimmed);
-				if (heading !== null) {
-					const level = Math.min(heading[1].length, 4);
-					blocks.push(h("h" + level, { key: k }, mdInline(heading[2], k, resolveImage)));
-					i += 1;
+				const hd = MD_HEADING_RE.exec(line);
+				if (hd !== null) {
+					blocks.push(h("h" + hd[1].length, { key: "b" + (key++) }, mdInline(hd[2], "hd" + key, resolveImage)));
+					i++;
 					continue;
 				}
-				if (/^ {0,3}(?:-{3,}|\*{3,}|_{3,})\s*$/.test(line)) { blocks.push(h("hr", { key: k })); i += 1; continue; }
-				if (/^ {0,3}>\s?/.test(line)) {
+				if (MD_HR_RE.test(line)) { blocks.push(h("hr", { key: "b" + (key++) })); i++; continue; }
+				if (MD_QUOTE_RE.test(line)) {
 					const buf = [];
-					while (i < lines.length && /^ {0,3}>\s?/.test(lines[i])) { buf.push(lines[i].replace(/^ {0,3}>\s?/, "")); i += 1; }
-					blocks.push(h("blockquote", { key: k }, mdInline(buf.join(" "), k, resolveImage)));
+					while (i < lines.length && lines[i].trim() !== "") {
+						const qm = MD_QUOTE_RE.exec(lines[i]);
+						if (qm === null) break;
+						buf.push(qm[1]);
+						i++;
+					}
+					blocks.push(h("blockquote", { key: "b" + (key++) }, renderMarkdown(buf.join("\n"), resolveImage)));
 					continue;
 				}
-				const listMatch = /^(\s*)([-*+]|\d{1,9}[.)])\s+(.*)$/.exec(line);
-				if (listMatch !== null) {
-					const ordered = /^\d/.test(listMatch[2]);
+				if (line.indexOf("|") !== -1 && i + 1 < lines.length && lines[i + 1].indexOf("|") !== -1 && lines[i + 1].indexOf("-") !== -1 && MD_TABLE_SEP_RE.test(lines[i + 1])) {
+					const header = mdSplitTableRow(line);
+					i += 2;
+					const rows = [];
+					while (i < lines.length && lines[i].indexOf("|") !== -1 && lines[i].trim() !== "") { rows.push(mdSplitTableRow(lines[i])); i++; }
+					blocks.push(h("table", { key: "b" + (key++), className: "sk-md-table" },
+						h("thead", null, h("tr", null, header.map((c, ci) => h("th", { key: ci }, mdInline(c, "th" + key + "-" + ci, resolveImage))))),
+						h("tbody", null, rows.map((r, ri) => h("tr", { key: ri }, r.map((c, ci) => h("td", { key: ci }, mdInline(c, "td" + key + "-" + ri + "-" + ci, resolveImage)))))),
+					));
+					continue;
+				}
+				if (MD_LIST_RE.test(line)) {
 					const items = [];
 					while (i < lines.length) {
-						const lm = /^(\s*)([-*+]|\d{1,9}[.)])\s+(.*)$/.exec(lines[i]);
-						if (lm === null) break;
-						items.push(lm[3]);
-						i += 1;
+						const m2 = MD_LIST_RE.exec(lines[i]);
+						if (m2 === null) {
+							if (/^\s{2,}\S/.test(lines[i]) && items.length > 0) {
+								items[items.length - 1].text += " " + lines[i].trim();
+								i++;
+								continue;
+							}
+							break;
+						}
+						items.push({ indent: m2[1].replace(/\t/g, "  ").length, ordered: /^\d/.test(m2[2]), text: m2[3] });
+						i++;
 					}
-					blocks.push(h(ordered ? "ol" : "ul", { key: k },
-						items.map((item, idx) => h("li", { key: k + "-" + idx }, mdInline(item, k + "-" + idx, resolveImage)))));
+					blocks.push(mdBuildList(items, "ls" + (key++), resolveImage));
 					continue;
 				}
-				if (trimmed.startsWith("|")) {
-					const buf = [];
-					while (i < lines.length && lines[i].trim().startsWith("|")) { buf.push(lines[i].trim()); i += 1; }
-					blocks.push(h("pre", { key: k }, h("code", null, buf.join("\n"))));
+				if (line.trim().startsWith("<!--")) {
+					while (i < lines.length && lines[i].indexOf("-->") === -1) i++;
+					i++;
+					continue;
+				}
+				if (HTML_BLOCK_START_RE.test(line)) {
+					const rootTagMatch = /^\s*<([a-zA-Z][a-zA-Z0-9-]*)/.exec(line);
+					const rootTag = rootTagMatch !== null ? rootTagMatch[1].toLowerCase() : "";
+					const chunk = [line];
+					i++;
+					if (HTML_VOID_TAGS[rootTag] !== 1 && /\/\s*>$/.test(line.trim()) === false && rootTag !== "") {
+						const openRe = new RegExp("<" + rootTag + "(?=[\\s/>])", "gi");
+						const closeRe = new RegExp("</" + rootTag + "\\s*>", "gi");
+						let depth = 0;
+						for (let ci = 0; ci < chunk.length; ci++) {
+							depth += (chunk[ci].match(openRe) || []).length;
+							depth -= (chunk[ci].match(closeRe) || []).length;
+						}
+						while (i < lines.length && depth > 0 && chunk.length < 400) {
+							chunk.push(lines[i]);
+							depth += (lines[i].match(openRe) || []).length;
+							depth -= (lines[i].match(closeRe) || []).length;
+							i++;
+						}
+					}
+					blocks.push(h("div", { key: "b" + (key++), className: "sk-html" }, renderHtmlChunk(chunk.join("\n"), "html" + key, resolveImage)));
 					continue;
 				}
 				const buf = [line];
-				i += 1;
-				while (i < lines.length && lines[i].trim() !== "" && !/^(#{1,6}\s|```|~~~| {0,3}>\s?|\s*([-*+]|\d{1,9}[.)])\s|\|)/.test(lines[i])) {
+				i++;
+				while (i < lines.length && lines[i].trim() !== "" && !MD_HEADING_RE.test(lines[i]) && !MD_FENCE_RE.test(lines[i]) && !MD_HR_RE.test(lines[i]) && !MD_QUOTE_RE.test(lines[i]) && !MD_LIST_RE.test(lines[i]) && !HTML_BLOCK_START_RE.test(lines[i])) {
 					buf.push(lines[i]);
-					i += 1;
+					i++;
 				}
-				blocks.push(h("p", { key: k }, mdInline(buf.join(" "), k, resolveImage)));
+				blocks.push(h("p", { key: "b" + (key++) }, mdInline(buf.join(" "), "p" + key, resolveImage)));
 			}
 			return h("div", { className: "sk-md" }, blocks);
+		}
+
+		function readmeResolveImage(repo) {
+			return (src) => {
+				if (/^https?:\/\//i.test(src)) return src;
+				if (/^(data|javascript|vbscript):/i.test(src)) return null;
+				if (src.startsWith("#")) return null;
+				return "https://raw.githubusercontent.com/" + repo.fullName + "/" + repo.branch + "/" + src.replace(/^\.\//, "");
+			};
 		}
 
 		// ------------------------------------------------------------- 组件
@@ -279,10 +492,10 @@ window.__ModuleLoader__.load({
 
 		function RepoCard(props) {
 			const repo = props.repo;
-			return h("div", { className: "sk-card", onClick: () => props.onOpen(repo) },
+			return h("div", { className: "sk-card" },
 				h("div", { className: "sk-card-head" },
 					repo.owner.avatar !== "" ? h("img", { className: "sk-avatar", src: repo.owner.avatar, alt: "" }) : null,
-					h("span", { className: "sk-card-title" }, repo.fullName),
+					h("span", { className: "sk-name", title: "查看详情", onClick: () => props.onOpen(repo.fullName) }, repo.fullName),
 				),
 				h("div", { className: "sk-card-desc" }, repo.description !== "" ? repo.description : "（无描述）"),
 				h("div", { className: "sk-badges" },
@@ -291,6 +504,10 @@ window.__ModuleLoader__.load({
 					repo.fork === true ? h("span", { className: "sk-badge" }, "fork") : null,
 					repo.archived === true ? h("span", { className: "sk-badge warn" }, "已归档") : null,
 					h("span", { className: "sk-badge" }, fmtDate(repo.updatedAt)),
+				),
+				h("div", { className: "sk-row" },
+					h("button", { className: "sk-btn primary", onClick: () => props.onOpen(repo.fullName) }, "详情 / 安装"),
+					h("a", { className: "sk-btn", href: repo.url, target: "_blank", rel: "noreferrer noopener" }, "GitHub ↗"),
 				),
 			);
 		}
@@ -403,7 +620,7 @@ window.__ModuleLoader__.load({
 						h("input", { type: "checkbox", checked: force, onChange: (e) => setForce(e.target.checked) }),
 						" 覆盖同名技能",
 					),
-					h("span", { style: { flex: 1 } }),
+					h("span", { className: "sk-spacer" }),
 					h("button", { className: "sk-btn primary", disabled: busy === true || selected.length === 0, onClick: install },
 						busy === true ? "安装中…" : "安装选中的 " + selected.length + " 个技能"),
 				),
@@ -417,41 +634,71 @@ window.__ModuleLoader__.load({
 			);
 		}
 
+		// 详情获取：弹窗打开即显示加载过程，成功 / 失败都在弹窗内呈现。
+		function useRepoDetail(fullName) {
+			const [data, setData] = React.useState(null);
+			const [error, setError] = React.useState("");
+			React.useEffect(() => {
+				let alive = true;
+				setData(null);
+				setError("");
+				rpc("repo", { fullName })
+					.then((r) => {
+						if (!alive) return;
+						if (r && r.ok === true) setData(r);
+						else setError(r && r.error ? r.error : "加载仓库详情失败");
+					})
+					.catch((e) => { if (alive) setError(errMsg(e)); });
+				return () => { alive = false; };
+			}, [fullName]);
+			return { data, error };
+		}
+
 		function DetailModal(props) {
-			const detail = props.detail;
-			const repo = detail.repo;
+			const fullName = props.fullName;
+			const state = useRepoDetail(fullName);
 			React.useEffect(() => {
 				const onKey = (e) => { if (e.key === "Escape") props.onClose(); };
 				window.addEventListener("keydown", onKey);
 				return () => window.removeEventListener("keydown", onKey);
 			}, []);
-			const resolveImage = (u) => {
-				if (/^https?:\/\//i.test(u)) return u;
-				if (u.startsWith("#") || u.startsWith("data:")) return null;
-				return "https://raw.githubusercontent.com/" + repo.fullName + "/" + repo.branch + "/" + u.replace(/^\.\//, "");
-			};
+			let body;
+			if (state.error !== "") {
+				body = h("div", { className: "sk-error" }, "加载 GitHub 仓库详情失败：" + state.error);
+			} else if (state.data === null) {
+				body = h("div", { className: "sk-loading" },
+					h("div", { className: "sk-spin" }),
+					h("div", { className: "sk-muted" }, "正在加载仓库详情（元数据 / README / 技能树扫描）…"));
+			} else {
+				const detail = state.data;
+				const repo = detail.repo;
+				body = h(React.Fragment, null,
+					h("div", { className: "sk-badges" },
+						h("span", { className: "sk-badge" }, "★ " + repo.stars),
+						h("span", { className: "sk-badge" }, "派生 " + repo.forks),
+						repo.license !== "" ? h("span", { className: "sk-badge" }, repo.license) : null,
+						repo.archived === true ? h("span", { className: "sk-badge warn" }, "已归档") : null,
+						repo.topics.map((t) => h("span", { className: "sk-badge", key: t }, t)),
+					),
+					repo.description !== "" ? h("div", { className: "sk-muted" }, repo.description) : null,
+					h(SkillInstallPanel, { detail, localSkills: props.localSkills, skillsRoot: props.skillsRoot, onChanged: props.onChanged }),
+					h("hr", { style: { width: "100%", borderColor: "var(--dsw-alias-border-l1,#eee)" } }),
+					detail.readme.text !== ""
+						? h("div", { className: "sk-readme" }, renderMarkdown(detail.readme.text, readmeResolveImage(repo)))
+						: h("div", { className: "sk-muted" }, "该仓库没有 README。"),
+				);
+			}
 			return h("div", { className: "sk-overlay", onClick: props.onClose },
 				h("div", { className: "sk-modal", onClick: (e) => e.stopPropagation() },
 					h("div", { className: "sk-modal-head" },
 						h("div", { className: "sk-row" },
-							h("span", { className: "sk-card-title", style: { fontSize: 15 } }, repo.fullName),
-							h("span", { className: "sk-badge" }, "★ " + repo.stars),
-							repo.license !== "" ? h("span", { className: "sk-badge" }, repo.license) : null,
-							repo.archived === true ? h("span", { className: "sk-badge warn" }, "已归档") : null,
-							h("span", { style: { flex: 1 } }),
-							h("a", { className: "sk-btn", href: repo.url, target: "_blank", rel: "noreferrer noopener" }, "GitHub ↗"),
+							h("span", { className: "sk-card-title", style: { fontSize: 15 } }, fullName),
+							h("span", { className: "sk-spacer" }),
+							h("a", { className: "sk-btn", href: "https://github.com/" + fullName, target: "_blank", rel: "noreferrer noopener" }, "GitHub ↗"),
 							h("button", { className: "sk-btn ghost", onClick: props.onClose }, "✕"),
 						),
-						repo.description !== "" ? h("div", { className: "sk-muted" }, repo.description) : null,
-						repo.topics.length > 0 ? h("div", { className: "sk-badges" }, repo.topics.map((t) => h("span", { className: "sk-badge", key: t }, t))) : null,
 					),
-					h("div", { className: "sk-modal-body" },
-						h(SkillInstallPanel, { detail, localSkills: props.localSkills, skillsRoot: props.skillsRoot, onChanged: props.onChanged }),
-						h("hr", { style: { width: "100%", borderColor: "var(--dsw-alias-border-l1,#eee)" } }),
-						detail.readme.text !== ""
-							? h(MdView, { text: detail.readme.text, resolveImage })
-							: h("div", { className: "sk-muted" }, "该仓库没有 README。"),
-					),
+					h("div", { className: "sk-modal-body" }, body),
 				),
 			);
 		}
@@ -467,8 +714,7 @@ window.__ModuleLoader__.load({
 			const [result, setResult] = React.useState(null);
 			const [loading, setLoading] = React.useState(false);
 			const [error, setError] = React.useState("");
-			const [detail, setDetail] = React.useState(null);
-			const [detailLoading, setDetailLoading] = React.useState(false);
+			const [selected, setSelected] = React.useState(null);
 			const [local, setLocal] = React.useState(null);
 			const [confirm, setConfirm] = React.useState(null);
 			const [busy, setBusy] = React.useState(false);
@@ -498,15 +744,6 @@ window.__ModuleLoader__.load({
 				}).catch((e) => { setLoading(false); setError(errMsg(e)); });
 			}
 			React.useEffect(() => { search(1); }, []);
-
-			function openRepo(repo) {
-				setDetailLoading(true); setError("");
-				rpc("repo", { fullName: repo.fullName }).then((r) => {
-					setDetailLoading(false);
-					if (r && r.ok === true) setDetail(r);
-					else setError(errMsg(r && r.error));
-				}).catch((e) => { setDetailLoading(false); setError(errMsg(e)); });
-			}
 
 			function act(fn) {
 				setBusy(true); setMessage(null);
@@ -550,11 +787,10 @@ window.__ModuleLoader__.load({
 						),
 						h("button", { className: "sk-btn primary", disabled: loading, onClick: () => search(1) }, loading ? "搜索中…" : "搜索"),
 					),
-					detailLoading === true ? h("div", { className: "sk-muted" }, "正在加载仓库详情…") : null,
 					result !== null
 						? h(React.Fragment, null,
 							h("div", { className: "sk-muted" }, "共 " + result.total + " 个仓库（topic:" + result.topic + "，第 " + result.page + " 页）"),
-							h("div", { className: "sk-grid" }, result.repos.map((repo) => h(RepoCard, { key: repo.fullName, repo, onOpen: openRepo }))),
+							h("div", { className: "sk-grid" }, result.repos.map((repo) => h(RepoCard, { key: repo.fullName, repo, onOpen: setSelected }))),
 							result.repos.length === 0 ? h("div", { className: "sk-muted" }, "没有匹配的仓库。") : null,
 							h("div", { className: "sk-pager" },
 								h("button", { className: "sk-btn", disabled: page <= 1 || loading, onClick: () => search(page - 1) }, "上一页"),
@@ -576,7 +812,7 @@ window.__ModuleLoader__.load({
 						? h("div", { className: "sk-muted" }, "尚未安装任何技能。去「发现」搜索 topic:agent-skills / dsh-skill 看看。")
 						: null,
 					h("div", { className: "sk-grid" },
-						localSkills.map((s) => h("div", { className: "sk-card static", key: s.root + ":" + s.dir },
+						localSkills.map((s) => h("div", { className: "sk-card", key: s.root + ":" + s.dir },
 							h("div", { className: "sk-card-head" },
 								h("span", { className: "sk-card-title" }, s.name !== "" ? s.name : s.dir),
 							),
@@ -601,12 +837,12 @@ window.__ModuleLoader__.load({
 						))),
 				),
 
-				detail !== null
+				selected !== null
 					? h(DetailModal, {
-						detail,
+						fullName: selected,
 						localSkills,
 						skillsRoot,
-						onClose: () => setDetail(null),
+						onClose: () => setSelected(null),
 						onChanged: refreshLocal,
 					})
 					: null,
