@@ -625,6 +625,16 @@ export function apply(ctx, config) {
       kind: 'exact',
       path,
       handler: async (req, res) => {
+        // 鉴权：这些路由能读写 $DSH_HOME/skills、删除技能、改写持久化代理设置，
+        // 因此复用 dsh 连接服务对 /api 通道的同一套围栏（Host/Origin 校验 + 签名 Cookie）。
+        // 缺少 connection 服务时默认拒绝，避免在没有浏览器鉴权的环境里静默放开。
+        const connection = ctx.get('connection')
+        const rejection = connection === undefined ? 403 : connection.requestRejection(req)
+        if (rejection !== undefined) {
+          res.writeHead(rejection, { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' })
+          res.end(rejection === 401 ? 'unauthorized' : 'forbidden')
+          return
+        }
         try {
           const params = new URL(req.url ?? '/', 'http://plug-skills.local').searchParams
           sendJson(res, await fn(params))

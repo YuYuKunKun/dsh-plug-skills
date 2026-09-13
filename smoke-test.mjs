@@ -32,15 +32,25 @@ const mod = await import('./index.js')
 
 function makeCtx() {
   const handlers = new Map()
+  // 模拟 dsh 连接服务：与真实 connection.requestRejection 同语义（Host/Origin 围栏 + 浏览器凭据）
+  const connection = {
+    requestRejection(req) {
+      const headers = req.headers ?? {}
+      if (headers.host !== '127.0.0.1:3999') return 403
+      if (headers['sec-fetch-site'] === 'cross-site') return 403
+      return headers['x-authed'] === '1' ? undefined : 401
+    },
+  }
   return {
     ctx: {
       webServer: { register: (route) => handlers.set(route.path, route.handler) },
-      get: () => undefined,
+      get: (name) => (name === 'connection' ? connection : undefined),
     },
     handlers,
   }
 }
-async function callRoute(handlers, path, params = {}) {
+async function callRoute(handlers, path, params = {}, options = {}) {
+  const { authed = true, host = '127.0.0.1:3999', crossSite = false } = options
   const handler = handlers.get(path)
   if (handler === undefined) throw new Error('路由未注册：' + path)
   const qs = Object.entries(params)
@@ -52,7 +62,11 @@ async function callRoute(handlers, path, params = {}) {
     writeHead(status, headers) { this.status = status; this.headers = headers },
     end(body) { out = body },
   }
-  await handler({ url: path + (qs !== '' ? '?' + qs : '') }, res)
+  const headers = { host }
+  if (authed === true) headers['x-authed'] = '1'
+  if (crossSite === true) headers['sec-fetch-site'] = 'cross-site'
+  await handler({ url: path + (qs !== '' ? '?' + qs : ''), headers }, res)
+  if (res.status !== 200) return { __status: res.status, __body: out }
   return JSON.parse(out)
 }
 
